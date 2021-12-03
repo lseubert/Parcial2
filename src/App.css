@@ -36,3 +36,17 @@
     transform: rotate(360deg);
   }
 }
+
+.list-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.space-item {
+  background: red;
+  width: 20rem;
+  min-width: 20rem;
+}
+.space-item img {
+  height: 10rem;
+}
