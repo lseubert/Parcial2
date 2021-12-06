@@ -1,11 +1,22 @@
 import React from "react";
 
-const RoomItem = ({ value }) => {
-  console.log(value);
+const RoomItem = ({ value, setRoom, list }) => {
+  const src =
+    value.name === "Living room"
+      ? "living.jpg"
+      : value.name === "Kitchen"
+      ? "kitchen.jpg"
+      : "dinner.jpg";
   return (
-    <button className="space-item">
-      <h2>{value.name}</h2>
-      <img src="loft.png" alt="." />
+    <button
+      className="card"
+      onClick={() => {
+        const res = list.find((ele) => ele.name === value.name);
+        setRoom(res);
+      }}
+    >
+      <h4 className="card-title">{value.name}</h4>
+      <img src={src} alt={value.name} />
     </button>
   );
 };

@@ -1,29 +1,37 @@
 import React from "react";
+import { Table } from "react-bootstrap";
+import { FormattedMessage } from "react-intl";
 
-const RoomTable = ({ data }) => {
-  console.log(data);
+const RoomTable = ({ room }) => {
+  const { devices } = room;
+
   return (
-    <table>
+    <Table striped bordered hover>
       <thead>
         <tr>
           <th>#</th>
           <th>ID</th>
-          <th>Device</th>
-          <th>Value</th>
+          <th>
+            <FormattedMessage id="Device" />
+          </th>
+          <th>
+            <FormattedMessage id="Value" />
+          </th>
         </tr>
       </thead>
 
       <tbody>
-        {data.map((item, index) => (
-          <tr key={item.id}>
-            <td>{index + 1}</td>
-            <td>Test</td>
-            <td>Test</td>
-            <td>Test</td>
-          </tr>
-        ))}
+        {devices &&
+          devices.map((item, index) => (
+            <tr key={index}>
+              <td>{index + 1}</td>
+              <td>{item.id}</td>
+              <td>{item.name}</td>
+              <td>{item.desired.value}</td>
+            </tr>
+          ))}
       </tbody>
-    </table>
+    </Table>
   );
 };
 
